@@ -19,13 +19,25 @@
 
     <div class="container"> 
 
+        
         <div id="api">
+            <button class="btn btn-primary" :disabled="loading" @click="loadCrimes">
+                Load Top Crimes
+            </button>      
+
             <button class="btn btn-primary" :disabled="loading" @click="loadTeams">
                 Load Teams Arrest Count
             </button>
+
             <ul class="list-group" v-if="showing == 'teams'">
                 <li class="list-group-item" v-for="team in teams" :key="team.id" @click="selectTeam(team)">
                      {{ team.Team_preffered_name }}, Arrest count: {{ team.arrest_count }}
+                </li>
+            </ul>
+
+            <ul class="list-group" v-if="showingC == 'crimes'">
+                <li class="list-group-item" v-for="crime in crimes" :key="crime.id" @click="selectCrime(crime)">
+                     {{ crime.Category }}, Arrest count: {{ crime.arrest_count }}
                 </li>
             </ul>
         </div>
