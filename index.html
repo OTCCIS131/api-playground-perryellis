@@ -25,7 +25,7 @@
             </button>
             <ul class="list-group" v-if="showing == 'teams'">
                 <li class="list-group-item" v-for="team in teams" :key="team.id" @click="selectTeam(team)">
-                     {{ team.Team_preffered_name }} {{ team.arrest_count }}
+                     {{ team.Team_preffered_name }}, Arrest count: {{ team.arrest_count }}
                 </li>
             </ul>
         </div>
